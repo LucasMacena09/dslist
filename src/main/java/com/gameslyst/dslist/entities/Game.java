@@ -25,9 +25,7 @@ public class Game {
     @Column(columnDefinition = "TEXT")
     private String longDescription;
 
-    public Game() {
-
-    }
+    public Game() {}
 
     public Game(Long id, String title, Integer year, String genre, String plataforms, Double score, String imgUrl,
                 String shortDescription, String longDescription) {
@@ -116,8 +114,7 @@ public class Game {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Game game = (Game) o;
+        if (!(o instanceof Game game)) return false;
         return Objects.equals(id, game.id);
     }
 
