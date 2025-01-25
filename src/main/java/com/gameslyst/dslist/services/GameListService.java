@@ -1,8 +1,6 @@
 package com.gameslyst.dslist.services;
 
 import com.gameslyst.dslist.dto.GameListDTO;
-import com.gameslyst.dslist.dto.GameMinDTO;
-import com.gameslyst.dslist.entities.Game;
 import com.gameslyst.dslist.entities.GameList;
 import com.gameslyst.dslist.repositories.GameListRepository;
 import org.springframework.beans.factory.annotation.Autowired;

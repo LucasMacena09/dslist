@@ -3,6 +3,7 @@ package com.gameslyst.dslist.services;
 import com.gameslyst.dslist.dto.GameDTO;
 import com.gameslyst.dslist.dto.GameMinDTO;
 import com.gameslyst.dslist.entities.Game;
+import com.gameslyst.dslist.projections.GameMinProjection;
 import com.gameslyst.dslist.repositories.GameRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,12 @@ public class GameService {
     @Transactional(readOnly = true)
     public List<GameMinDTO> findAll() {
         List<Game> result = gameRepository.findAll();
+        return result.stream().map(GameMinDTO::new).toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<GameMinDTO> findByList(Long listId) {
+        List<GameMinProjection> result = gameRepository.searchByList(listId);
         return result.stream().map(GameMinDTO::new).toList();
     }
 }
